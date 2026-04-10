@@ -1,4 +1,4 @@
-# SWE-QA-Pro
+# SWE-QA-Pro: A Representative Benchmark and Scalable Training Recipe for Repository-Level Code Understanding
 
 [**📖 arXiv**](https://arxiv.org/abs/2603.16124) | [**🤗 SWE-QA-Pro Bench**](https://huggingface.co/datasets/TIGER-Lab/SWE-QA-Pro-Bench) |
 
