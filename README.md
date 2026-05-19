@@ -6,7 +6,7 @@
 
 ## 📢 News
 
-- **🚀 [2026-05-19] The evaluation code is released — see [`eval/`](eval/README.md) for setup and reproduction instructions. Training code and model checkpoints will be released soon.****
+- **🚀 [2026-05-19] The evaluation code is released — see [`eval/`](eval/README.md) for setup and reproduction instructions. Training code and model checkpoints will be released soon.**
 - **🎉 [2026-04-07] Our paper has been accepted to the Findings of ACL 2026!**
 - **🔥 [2026-03-20] SWE-QA-Pro Bench is publicly released! See our [paper](https://arxiv.org/abs/2603.16124) and [benchmark](https://huggingface.co/datasets/TIGER-Lab/SWE-QA-Pro-Bench).**
 
