@@ -1,0 +1,95 @@
+defaults:
+  temperature: 0.0
+  max_context_length: 32768
+  max_iterations: 25
+  history_window: 25
+  context_warning_threshold: 0.825
+
+models:
+  gpt-4o:
+    provider: openai
+    model_id: gpt-4o-2024-11-20
+    base_url_env: OPENAI_BASE_URL
+    api_key_env: OPENAI_API_KEY
+
+  gpt-4.1:
+    provider: openai
+    model_id: gpt-4.1-2025-04-14
+    base_url_env: OPENAI_BASE_URL
+    api_key_env: OPENAI_API_KEY
+
+  claude-sonnet-4.5:
+    provider: anthropic
+    model_id: claude-sonnet-4-5
+    api_key_env: ANTHROPIC_API_KEY
+
+  gemini-2.5-pro:
+    provider: gemini
+    model_id: gemini-2.5-pro
+    api_key_env: GEMINI_API_KEY
+
+  deepseek-v3.2:
+    provider: openai
+    model_id: deepseek-chat
+    base_url_env: DEEPSEEK_BASE_URL
+    api_key_env: DEEPSEEK_API_KEY
+
+  qwen3-8b:
+    provider: vllm-local
+    model_id: Qwen/Qwen3-8B
+    vllm:
+      tensor_parallel_size: 1
+      max_model_len: 32768
+      gpu_memory_utilization: 0.90
+      dtype: bfloat16
+      max_num_seqs: 64
+      max_num_batched_tokens: 8192
+      enable_chunked_prefill: true
+    agent_vllm:
+      enable_auto_tool_choice: true
+      tool_call_parser: hermes
+
+  qwen3-32b:
+    provider: vllm-local
+    model_id: Qwen/Qwen3-32B
+    vllm:
+      tensor_parallel_size: 2
+      max_model_len: 32768
+      gpu_memory_utilization: 0.92
+      dtype: bfloat16
+      max_num_seqs: 32
+      max_num_batched_tokens: 8192
+      enable_chunked_prefill: true
+    agent_vllm:
+      enable_auto_tool_choice: true
+      tool_call_parser: hermes
+
+  devstral-24b:
+    provider: vllm-local
+    model_id: mistralai/Devstral-Small-2-24B-Instruct-2512
+    vllm:
+      tensor_parallel_size: 2
+      max_model_len: 32768
+      gpu_memory_utilization: 0.92
+      dtype: bfloat16
+      max_num_seqs: 32
+      max_num_batched_tokens: 8192
+      enable_chunked_prefill: true
+    agent_vllm:
+      enable_auto_tool_choice: true
+      tool_call_parser: mistral
+
+  llama-3.3-70b:
+    provider: vllm-local
+    model_id: meta-llama/Llama-3.3-70B-Instruct
+    vllm:
+      tensor_parallel_size: 4
+      max_model_len: 32768
+      gpu_memory_utilization: 0.92
+      dtype: bfloat16
+      max_num_seqs: 16
+      max_num_batched_tokens: 8192
+      enable_chunked_prefill: true
+    agent_vllm:
+      enable_auto_tool_choice: true
+      tool_call_parser: llama3_json

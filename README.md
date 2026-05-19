@@ -1,12 +1,14 @@
 # SWE-QA-Pro: A Representative Benchmark and Scalable Training Recipe for Repository-Level Code Understanding
 
-[**📖 arXiv**](https://arxiv.org/abs/2603.16124) | [**🤗 SWE-QA-Pro Bench**](https://huggingface.co/datasets/TIGER-Lab/SWE-QA-Pro-Bench) |
+[**📖 arXiv**](https://arxiv.org/abs/2603.16124) | [**🤗 SWE-QA-Pro Bench**](https://huggingface.co/datasets/TIGER-Lab/SWE-QA-Pro-Bench) | [**💻 GitHub**](https://github.com/TIGER-AI-Lab/SWE-QA-Pro)
 
 ---
 
 ## 📢 News
 
-- **🔥 [2026-3-20] SWE-QA-Pro Bench is publicly released! Please check our [paper](https://arxiv.org/abs/2603.16124) and [benchmark](https://huggingface.co/datasets/TIGER-Lab/SWE-QA-Pro-Bench). The model and code will be released soon.**
+- **🚀 [2026-05-19] The evaluation code is released — see [`eval/`](eval/README.md) for setup and reproduction instructions. Training code and model checkpoints will be released soon.****
+- **🎉 [2026-04-07] Our paper has been accepted to the Findings of ACL 2026!**
+- **🔥 [2026-03-20] SWE-QA-Pro Bench is publicly released! See our [paper](https://arxiv.org/abs/2603.16124) and [benchmark](https://huggingface.co/datasets/TIGER-Lab/SWE-QA-Pro-Bench).**
 
 
 ## 📘 Introduction
@@ -43,9 +45,15 @@ To address these challenges, we introduce two key components:
 
 ## 🛠️ TODO
 - [x] Release the dataset
-- [ ] Release the evaluation code
+- [x] Release the evaluation code
 - [ ] Release the model
 - [ ] Release the training code
+
+
+## ⚙️ Train & Eval
+
+- **Evaluation** — code for running both **Direct mode** and **Agent mode** on the SWE-QA-Pro Bench (with a unified OpenAI/DeepSeek judge) lives under [`eval/`](eval/README.md). The runner supports GPT-4o, GPT-4.1, Claude Sonnet 4.5, Gemini 2.5 Pro, DeepSeek v4, and local vLLM models (Qwen3, Devstral, Llama 3.3) — backends are configured declaratively in `eval/configs/models.yaml`, no code changes needed to add or swap a model. See [`eval/README.md`](eval/README.md) for installation, supported models, run commands, and the package layout.
+- **Training** — Come soon.
 
 
 ## 📬 Contact
@@ -66,3 +74,8 @@ To address these challenges, we introduce two key components:
       journal={arXiv preprint arXiv:2603.16124},
       year={2026},
 }
+```
+
+## 🙏 Acknowledgement
+
+We thank the authors of [SWE-QA-Bench](https://github.com/peng-weihan/SWE-QA-Bench) for open-sourcing their codebase, which served as a useful implementation reference for this project.
