@@ -1,12 +1,13 @@
 # SWE-QA-Pro: A Representative Benchmark and Scalable Training Recipe for Repository-Level Code Understanding
 
-[**📖 arXiv**](https://arxiv.org/abs/2603.16124) | [**🤗 SWE-QA-Pro Bench**](https://huggingface.co/datasets/TIGER-Lab/SWE-QA-Pro-Bench) | [**💻 GitHub**](https://github.com/TIGER-AI-Lab/SWE-QA-Pro)
+[**📖 arXiv**](https://arxiv.org/abs/2603.16124) | [**🤗 SWE-QA-Pro Bench**](https://huggingface.co/datasets/TIGER-Lab/SWE-QA-Pro-Bench) | [**🤗 SWE-QA-Pro-SFT Trajectories**](https://huggingface.co/datasets/TIGER-Lab/SWE-QA-Pro-SFT-Trajectories)
 
 ---
 
 ## 📢 News
 
-- **🚀 [2026-05-19] The evaluation code is released — see [`eval/`](eval/README.md) for setup and reproduction instructions. Training code and model checkpoints will be released soon.**
+- **🤖 [2026-06-24] The training code and training dataset are released. See [`train/`](train/README.md) for the two-stage SFT and RL recipe.**
+- **🚀 [2026-05-19] The evaluation code is released. See [`eval/`](eval/README.md) for setup and reproduction instructions.**
 - **🎉 [2026-04-07] Our paper has been accepted to the Findings of ACL 2026!**
 - **🔥 [2026-03-20] SWE-QA-Pro Bench is publicly released! See our [paper](https://arxiv.org/abs/2603.16124) and [benchmark](https://huggingface.co/datasets/TIGER-Lab/SWE-QA-Pro-Bench).**
 
@@ -43,17 +44,10 @@ To address these challenges, we introduce two key components:
     Models trained with this pipeline achieve strong performance, with our SWE-QA-Pro 8B model surpassing GPT-4o by **+2.3 points** on SWE-QA-Pro and substantially narrowing the gap to state-of-the-art proprietary models.
 
 
-## 🛠️ TODO
-- [x] Release the dataset
-- [x] Release the evaluation code
-- [ ] Release the model
-- [ ] Release the training code
-
-
 ## ⚙️ Train & Eval
 
-- **Evaluation** — code for running both **Direct mode** and **Agent mode** on the SWE-QA-Pro Bench (with a unified OpenAI/DeepSeek judge) lives under [`eval/`](eval/README.md). The runner supports GPT-4o, GPT-4.1, Claude Sonnet 4.5, Gemini 2.5 Pro, DeepSeek v4, and local vLLM models (Qwen3, Devstral, Llama 3.3) — backends are configured declaratively in `eval/configs/models.yaml`, no code changes needed to add or swap a model. See [`eval/README.md`](eval/README.md) for installation, supported models, run commands, and the package layout.
-- **Training** — Come soon.
+- **Training**: the two-stage recipe (SFT then RL) lives under [`train/`](train/README.md). Stage 1 fine-tunes Qwen3-8B on agentic trajectories with [ms-swift](https://github.com/modelscope/ms-swift); Stage 2 runs agentic RL (GRPO) on top of the SFT checkpoint with [verl-tool](https://github.com/TIGER-AI-Lab/verl-tool), against a repository tool server and an LLM judged rubric reward. See [`train/README.md`](train/README.md) for setup and run instructions.
+- **Evaluation**: code for running both Direct mode and Agent mode on the SWE-QA-Pro Bench (with a unified OpenAI/DeepSeek judge) lives under [`eval/`](eval/README.md). The runner supports GPT-4o, GPT-4.1, Claude Sonnet 4.5, Gemini 2.5 Pro, DeepSeek v4, and local vLLM models (Qwen3, Devstral, Llama 3.3); backends are configured in `eval/configs/models.yaml`. See [`eval/README.md`](eval/README.md) for installation, supported models, run commands, and the package layout.
 
 
 ## 📬 Contact
